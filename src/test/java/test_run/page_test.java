@@ -1,4 +1,4 @@
-package getting_started;
+package test_run;
 
 import org.junit.Test;
 import org.openqa.selenium.By;
@@ -8,7 +8,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 import static org.junit.Assert.assertEquals;
 
-public class pageTest {
+public class page_test {
 
 
     @Test
@@ -31,7 +31,7 @@ public class pageTest {
         driver.findElement(By.tagName("button")).click();
         //adding second element
         driver.findElement(By.tagName("button")).click();
-
+        //deleting two elements
         driver.findElement(By.xpath("//div[@id='elements']/button")).click();
         driver.findElement(By.xpath("//div[@id='elements']/button")).click();
 
