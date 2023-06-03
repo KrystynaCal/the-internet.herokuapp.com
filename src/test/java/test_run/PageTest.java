@@ -9,6 +9,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import page_objects.*;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 public class PageTest {
 
@@ -18,6 +19,7 @@ public class PageTest {
     private BasicAuthPage basicAuthPage;
     private BrokenImagesPage brokenImagesPage;
     private CheckboxesPage checkboxesPage;
+    private ContextMenuPage contextMenuPage;
 
     @Before
     public void setup() {
@@ -64,8 +66,16 @@ public class PageTest {
     @Test
     public void checkboxes_test() {
         checkboxesPage.clickCheckboxesTab();
-        checkboxesPage.isDisplayed();
+        Assert.assertTrue(checkboxesPage.isDisplayed());
         checkboxesPage.clickCheckboxes();
+    }
+
+    @Test
+    public void context_menu_test(){
+        contextMenuPage = new ContextMenuPage(driver);
+        contextMenuPage.clickContextMenuTab();
+        assertTrue(contextMenuPage.isDisplayed());
+        contextMenuPage.rightclick();
     }
 
     @After
