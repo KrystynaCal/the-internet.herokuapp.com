@@ -6,10 +6,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import page_objects.AddRemovePage;
-import page_objects.BasicAuthPage;
-import page_objects.BrokenImagesPage;
-import page_objects.HomePage;
+import page_objects.*;
 
 import static org.junit.Assert.assertEquals;
 
@@ -20,6 +17,7 @@ public class PageTest {
     private HomePage homePage;
     private BasicAuthPage basicAuthPage;
     private BrokenImagesPage brokenImagesPage;
+    private CheckboxesPage checkboxesPage;
 
     @Before
     public void setup() {
@@ -29,6 +27,7 @@ public class PageTest {
         homePage = new HomePage(driver);
         basicAuthPage = new BasicAuthPage(driver);
         brokenImagesPage = new BrokenImagesPage(driver);
+        checkboxesPage = new CheckboxesPage(driver);
     }
 
     @Test
@@ -62,12 +61,15 @@ public class PageTest {
         Assert.assertTrue("Image 3 is not displayed", brokenImagesPage.isGoodImageDisplayed());
     }
 
-
+    @Test
+    public void checkboxes_test() {
+        checkboxesPage.clickCheckboxesTab();
+        checkboxesPage.isDisplayed();
+        checkboxesPage.clickCheckboxes();
+    }
 
     @After
     public void cleanup() {
         driver.quit();
     }
-
-
 }
