@@ -20,6 +20,7 @@ public class PageTest {
     private BrokenImagesPage brokenImagesPage;
     private CheckboxesPage checkboxesPage;
     private ContextMenuPage contextMenuPage;
+    private DigestAuthenticationPage digestAuthenticationPage;
 
     @Before
     public void setup() {
@@ -30,6 +31,7 @@ public class PageTest {
         basicAuthPage = new BasicAuthPage(driver);
         brokenImagesPage = new BrokenImagesPage(driver);
         checkboxesPage = new CheckboxesPage(driver);
+
     }
 
     @Test
@@ -68,6 +70,7 @@ public class PageTest {
         checkboxesPage.clickCheckboxesTab();
         Assert.assertTrue(checkboxesPage.isDisplayed());
         checkboxesPage.clickCheckboxes();
+
     }
 
     @Test
@@ -76,6 +79,14 @@ public class PageTest {
         contextMenuPage.clickContextMenuTab();
         assertTrue(contextMenuPage.isDisplayed());
         contextMenuPage.rightclick();
+    }
+
+    @Test
+    public void digest_authentication_test(){
+        digestAuthenticationPage= new DigestAuthenticationPage(driver);
+        digestAuthenticationPage.clickDigestAuthenticationTab();
+        digestAuthenticationPage.sendCridentials();
+        assertEquals(digestAuthenticationPage.getHeader(), "Congratulations! You must have the proper credentials.");
     }
 
     @After
