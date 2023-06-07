@@ -21,6 +21,7 @@ public class PageTest {
     private CheckboxesPage checkboxesPage;
     private ContextMenuPage contextMenuPage;
     private DigestAuthenticationPage digestAuthenticationPage;
+    private DragAndDropPage dragAndDropPage;
 
     @Before
     public void setup() {
@@ -31,6 +32,7 @@ public class PageTest {
         basicAuthPage = new BasicAuthPage(driver);
         brokenImagesPage = new BrokenImagesPage(driver);
         checkboxesPage = new CheckboxesPage(driver);
+
 
     }
 
@@ -83,12 +85,18 @@ public class PageTest {
 
     @Test
     public void digest_authentication_test(){
-        digestAuthenticationPage= new DigestAuthenticationPage(driver);
+        digestAuthenticationPage = new DigestAuthenticationPage(driver);
         digestAuthenticationPage.clickDigestAuthenticationTab();
         digestAuthenticationPage.sendCridentials();
         assertEquals(digestAuthenticationPage.getHeader(), "Congratulations! You must have the proper credentials.");
     }
 
+    @Test
+    public void drag_and_drop_test() {
+        dragAndDropPage = new DragAndDropPage(driver);
+        dragAndDropPage.clickDragDndDropTab();
+        dragAndDropPage.drag_and_drop();
+    }
     @After
     public void cleanup() {
         driver.quit();
