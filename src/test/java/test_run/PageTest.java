@@ -97,6 +97,15 @@ public class PageTest {
         dragAndDropPage.clickDragDndDropTab();
         dragAndDropPage.drag_and_drop();
     }
+
+    @Test
+    public void dropdown_test() throws InterruptedException {
+        DropdownListPage dropdownListPage = new DropdownListPage(driver);
+        dropdownListPage.clickDropdownTab();
+        dropdownListPage.clickDropdownHeader();
+        dropdownListPage.clickoption1();
+        dropdownListPage.clickoption2();
+    }
     @After
     public void cleanup() {
         driver.quit();
