@@ -99,13 +99,22 @@ public class PageTest {
     }
 
     @Test
-    public void dropdown_test() throws InterruptedException {
+    public void dropdown_test() {
         DropdownListPage dropdownListPage = new DropdownListPage(driver);
         dropdownListPage.clickDropdownTab();
         dropdownListPage.clickDropdownHeader();
         dropdownListPage.clickoption1();
         dropdownListPage.clickoption2();
     }
+
+    @Test
+    public void file_upload_test(){
+        FileUploadPage fileUploadPage = new FileUploadPage(driver);
+        fileUploadPage.clickFileUploadTab();
+        fileUploadPage.clickFileUpload();
+    }
+
+
     @After
     public void cleanup() {
         driver.quit();
