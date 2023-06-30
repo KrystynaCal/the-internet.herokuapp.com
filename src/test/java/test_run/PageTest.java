@@ -76,7 +76,7 @@ public class PageTest {
     }
 
     @Test
-    public void context_menu_test(){
+    public void context_menu_test() {
         contextMenuPage = new ContextMenuPage(driver);
         contextMenuPage.clickContextMenuTab();
         assertTrue(contextMenuPage.isDisplayed());
@@ -84,7 +84,7 @@ public class PageTest {
     }
 
     @Test
-    public void digest_authentication_test(){
+    public void digest_authentication_test() {
         digestAuthenticationPage = new DigestAuthenticationPage(driver);
         digestAuthenticationPage.clickDigestAuthenticationTab();
         digestAuthenticationPage.sendCridentials();
@@ -108,10 +108,18 @@ public class PageTest {
     }
 
     @Test
-    public void file_upload_test(){
+    public void file_upload_test() {
         FileUploadPage fileUploadPage = new FileUploadPage(driver);
         fileUploadPage.clickFileUploadTab();
         fileUploadPage.clickFileUpload();
+    }
+
+    @Test
+    public void hover_test() {
+        HoverPage hoverPage = new HoverPage(driver);
+        hoverPage.clickHoverTabLink();
+        hoverPage.moveHoverFirstImg();
+        hoverPage.moveHoverSecondImg();
     }
 
 
