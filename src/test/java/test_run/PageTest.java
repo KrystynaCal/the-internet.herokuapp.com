@@ -122,6 +122,20 @@ public class PageTest {
         hoverPage.moveHoverSecondImg();
     }
 
+    @Test
+    public void form_authentication_test() {
+        FormAuthenticationPage formAuthenticationPage = new FormAuthenticationPage(driver);
+        formAuthenticationPage.clickFormAuthenticationPage();
+        formAuthenticationPage.successfulLogin();
+    }
+
+    @Test
+    public void form_authentication_test_unsuccessfulLogin() {
+        FormAuthenticationPage formAuthenticationPage = new FormAuthenticationPage(driver);
+        formAuthenticationPage.clickFormAuthenticationPage();
+        formAuthenticationPage.unsuccessfulLogin();
+    }
+
 
     @After
     public void cleanup() {
