@@ -8,6 +8,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import page_objects.*;
 
+import java.io.IOException;
+
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
@@ -136,7 +138,22 @@ public class PageTest {
         formAuthenticationPage.unsuccessfulLogin();
     }
 
-
+    @Test
+    public void status_codes_test() throws IOException {
+        StatusCodesPage statusCodesPage = new StatusCodesPage(driver);
+        statusCodesPage.click_statusCodeTabLink();
+        statusCodesPage.clickStatusCodes200TabLink();
+        assertEquals(200, statusCodesPage.getRes());
+        driver.navigate().back();
+        statusCodesPage.clickStatusCodes301TabLink();
+        assertEquals(301, statusCodesPage.getRes301());
+        driver.navigate().back();
+        statusCodesPage.clickStatusCodes404TabLink();
+        assertEquals(404, statusCodesPage.getRes404());
+        driver.navigate().back();
+        statusCodesPage.clickStatusCodes500TabLink();
+        assertEquals(500, statusCodesPage.getRes500());
+    }
     @After
     public void cleanup() {
         driver.quit();
