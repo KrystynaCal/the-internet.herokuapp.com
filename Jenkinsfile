@@ -1,15 +1,9 @@
 pipeline {
     agent any
     stages {
-        stage('Verify') {
+        stage('Test') {
             steps {
-                sh 'google-chrome --version'
-                sh 'firefox --version'
-            }
-        }
-        stage('Run Tests') {
-            steps {
-                sh './mvnw clean'
+                sh 'mvn test'
             }
         }
     }
