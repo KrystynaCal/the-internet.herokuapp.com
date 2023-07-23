@@ -2,11 +2,25 @@
 
 
 ##### Automated Acceptance Tests written with Java and Selenium for http://the-internet.herokuapp.com 
-
----
 This repository contains automated tests written in Java using the Selenium framework for the web application located at [http://the-internet.herokuapp.com/](http://the-internet.herokuapp.com/).
 
 ---
+## Jenkins Pipeline Integration
+
+This project includes a Jenkinsfile for setting up a fully automated CI/CD pipeline in Jenkins. The pipeline builds, tests, and deploys the application automatically. Pushed changes trigger test runs, and successful builds can be deployed to staging/production.
+
+Follow these steps to set up the Jenkins Pipeline:
+
+1. Install Jenkins and necessary plugins (Maven, Git).
+2. Create a Jenkins pipeline job.
+3. Configure the repository as the project source.
+4. Add the Jenkinsfile to the pipeline configuration.
+5. Save and run the pipeline.
+
+Now, whenever you push new changes to this repository, Jenkins will automatically trigger the pipeline, and your automated tests will run against the [http://the-internet.herokuapp.com](http://the-internet.herokuapp.com) web application. Any successful build can also be automatically deployed if you've configured deployment stages in the Jenkinsfile.
+
+---
+
 - [A/B Testing](https://the-internet.herokuapp.com/abtest)
 - [Add/Remove Elements](https://the-internet.herokuapp.com/add_remove_elements/)
 - [Basic Auth](https://the-internet.herokuapp.com/basic_auth)(user and pass: admin)
